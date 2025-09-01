@@ -12,12 +12,12 @@ publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project_id, topic_id)
 
 def publish_message(Id, Name, Salary):
-    timestamp =datetime.utcnow().isoformat() + "Z"
+    Timestamp =datetime.utcnow().isoformat() + "Z"
     message = {
         "Id": Id,
         "Name": Name,
         "Salary": Salary,
-        "Timestamp": timestamp,
+        "Timestamp": Timestamp,
     }
         
     message_json = json.dumps(message).encode("utf-8")
