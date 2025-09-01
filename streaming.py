@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 project_id= "centered-sol-469812-v8"
-topic_id=""
+topic_id="df-streaming-01"
 
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project_id, topic_id)
