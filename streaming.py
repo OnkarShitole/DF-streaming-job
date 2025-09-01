@@ -12,12 +12,12 @@ publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project_id, topic_id)
 
 def publish_message(Id, Name, Salary):
-    Timestamp =datetime.utcnow().isoformat() + "Z"
+   # Timestamp =datetime.utcnow().isoformat() + "Z"
     message = {
-        "Id": Id,
+        "Id": int(Id),
         "Name": Name,
-        "Salary": Salary,
-        "Timestamp": Timestamp,
+        "Salary": int(Salary),
+        "Timestamp": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
     }
         
     message_json = json.dumps(message).encode("utf-8")
@@ -32,7 +32,7 @@ with open(csv_file_path, mode="r") as file:
     for row in reader:
         Id = row["Id"]
         Name = row["Name"]
-        Salary = ["Salary"]
+        Salary = row["Salary"]
             
         publish_message(Id,Name,Salary)
             
